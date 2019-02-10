@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { fromEvent, Observable, concat, of, from } from 'rxjs';
-import { mergeMap, map, first, filter } from 'rxjs/operators';
+import { mergeMap, map, first, filter, delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -27,9 +27,15 @@ export class AppComponent {
         next(x) {console.log(x)}
       });
 
-    // concatMapTo(
-    //   of(100), of(0.5)
-    // ) .subscribe()
+
+    // 2 task
+    let mul = 1;
+
+    concat(
+      of(100), of(0.5)
+    ) .subscribe(x => { mul *= x });
+
+    console.log(`Multiple = ${mul}`);
 
     // 3 task
     fromEvent(document, 'click')
@@ -45,6 +51,21 @@ export class AppComponent {
     });
 
     observable1.subscribe(x => {console.log(x)});
+
+    // 5 task
+
+    const number = Math.round(Math.random() * 100);
+
+    const hot = Observable.create(observer => {
+      observer.next(number);
+    });
+
+    const cold = Observable.create(observer => {
+      observer.next(Math.round(Math.random() * 150));
+    });
+
+    hot.subscribe(x => {console.log(x)});
+    cold.subscribe(x => {console.log(x)});
 
     // 6 task
     from([10, 100, 1000])
@@ -87,6 +108,21 @@ export class AppComponent {
        error(e) {console.error(e)}
      });
 
-
+     // 11 task
+     let notifications = [ 
+      { userId: 1, name: 'A1', delay: 100 }, // should be shown
+      { userId: 1, name: 'A2', delay: 1500 }, // shouldn't be shown
+      { userId: 1, name: 'A3', delay: 2500 }, // shouldn't be shown
+      { userId: 1, name: 'A4', delay: 3500 }, // should be shown
+      { userId: 2, name: 'B1', delay: 200 }, // should be shown
+      { userId: 2, name: 'B2', delay: 300 }, // shouldn't be shown
+      { userId: 2, name: 'B3', delay: 3500 }, // should be shown
+     ]
+     
+     from(notifications).pipe(
+      mergeMap((notif) => {
+        return of(notif).pipe(delay(notif.delay));
+      }),
+     );
   }
 }
