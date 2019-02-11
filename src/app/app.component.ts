@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { fromEvent, Observable, concat, of, from } from 'rxjs';
-import { mergeMap, map, first, filter, delay } from 'rxjs/operators';
+import { mergeMap, map, first, filter, delay, groupBy, reduce, throttleTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -14,28 +14,27 @@ export class AppComponent {
     // 1 task
     console.log('from');
     from([1, 2, 3])
-      .subscribe({
-        next(x) {console.log(x)}
-      });
+      .subscribe(
+        (x) => {console.log(x)}
+      );
 
     console.log('of'); 
     of([1, 2, 3])
       .pipe(
         mergeMap(x => x)
       )
-      .subscribe({
-        next(x) {console.log(x)}
-      });
+      .subscribe(
+        (x) => {console.log(x)}
+      );
 
 
     // 2 task
-    let mul = 1;
-
     concat(
       of(100), of(0.5)
-    ) .subscribe(x => { mul *= x });
+    )
+    .pipe(reduce((acc, val) => acc * val))
+    .subscribe(x => { console.log(`Multiple = ${x}`) });
 
-    console.log(`Multiple = ${mul}`);
 
     // 3 task
     fromEvent(document, 'click')
@@ -72,17 +71,17 @@ export class AppComponent {
       .pipe(
         map(x => Math.log(x))
       )
-      .subscribe({
-        next(val) {console.log(val)}
-      });
+      .subscribe(
+        (val) => {console.log(val)}
+      );
 
 
     // 7 task
     from(['Richard', 'Erlich', 'Dinesh', 'Gilfoyle'])
       .pipe(first())
-      .subscribe({
-        next(x) {console.log(x)}
-      });
+      .subscribe(
+        (x) => {console.log(x)}
+      );
     
     // 9 task
     const names = of('Sharon', 'Sue', 'Sally', 'Steve');
@@ -90,9 +89,9 @@ export class AppComponent {
       .pipe(
       filter(x => x.length === 5)
       )
-      .subscribe({
-        next(val) {console.log(val)}
-      });
+      .subscribe(
+        (val) => {console.log(val)}
+      );
 
     // 10 task
     const observable2 = Observable.create( observer => {
@@ -103,10 +102,10 @@ export class AppComponent {
         observer.next( 'wonderful' )
      });
 
-     observable2.subscribe({
-       next(value) {console.log(value)},
-       error(e) {console.error(e)}
-     });
+     observable2.subscribe(
+       (value) => {console.log(value)},
+       (e) => {console.error(e)}
+     );
 
      // 11 task
      let notifications = [ 
@@ -123,6 +122,9 @@ export class AppComponent {
       mergeMap((notif) => {
         return of(notif).pipe(delay(notif.delay));
       }),
-     );
+      groupBy(x => x.userId),
+      mergeMap(group => group.pipe(throttleTime(3000)))
+     )
+     .subscribe(x => {console.log(x)})
   }
 }
