@@ -20,9 +20,7 @@ export class AppComponent {
 
     console.log('of'); 
     of([1, 2, 3])
-      .pipe(
-        mergeMap(x => x)
-      )
+      .pipe(mergeMap(x => x))
       .subscribe({
         next(x) {console.log(x)}
       });
