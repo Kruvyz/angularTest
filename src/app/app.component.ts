@@ -20,19 +20,12 @@ export class AppComponent {
 
     console.log('of'); 
     of([1, 2, 3])
-<<<<<<< HEAD
-      .pipe(mergeMap(x => x))
-      .subscribe({
-        next(x) {console.log(x)}
-      });
-=======
       .pipe(
         mergeMap(x => x)
       )
       .subscribe(
         (x) => {console.log(x)}
       );
->>>>>>> 4f9c95161d78c9cab2a4369d74995372ff2b2b93
 
 
     // 2 task
