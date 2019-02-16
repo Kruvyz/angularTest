@@ -1,3 +1,8 @@
-<p>
-  products works!
-</p>
+<div class="products">
+  <div class="product" *ngFor="let product of products">
+    <img class="product--image" src="{{product.imageUrl}}" alt="{{product.name}}">
+    <p>{{product.name}}</p>
+    <p>{{product.price}} грн</p>
+    <button>Add to Cart</button>
+  </div>
+</div>
