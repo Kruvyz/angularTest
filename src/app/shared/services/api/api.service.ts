@@ -16,4 +16,10 @@ export class ApiService {
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.productsUrl);
   }
+
+  getProductDetail(id: number): Observable<Product> {
+    const url = `${this.productsUrl}/${id}`;
+    
+    return this.http.get<Product>(url);
+  }
 }
