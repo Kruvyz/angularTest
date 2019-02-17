@@ -1,6 +1,8 @@
-<div *ngIf="product">
-    <img src="{{product.imageUrl}}" alt="{{product.name}}">
-    <h2>{{product.name}}</h2>
-    <p>Description {{product.description}}</p>
-    <button>Add to Cart</button>
+<div class="product" *ngIf="product">
+    <img class="product--img" src="{{product.imageUrl}}" alt="{{product.name}}">
+    <div>
+        <h2>{{product.name}}</h2>
+        <p>Description {{product.description}}</p>
+        <button>Add to Cart</button>
+    </div>
 </div>

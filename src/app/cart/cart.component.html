@@ -1,1 +1,17 @@
 <h2>My cart</h2>
+
+<!-- <ul>
+    <li *ngFor="let product of cartProducts">{{product.name}}</li>
+</ul> -->
+<div class="cart-item" *ngFor="let product of cartProducts; let i = index;">
+    <img class="cart-item--image" src="{{product.imageUrl}}" alt="{{product.name}}">
+    <p>{{product.name}}</p>
+    <p>{{product.price}} грн</p>
+    <div class="count">
+        <button (click)="minusCount(i)">-</button>
+        <p>{{product.count}}</p>
+        <button (click)="plusCount(i)">+</button>
+    </div>
+    <p>{{product.price * product.count}}</p>
+    <button (click)="deleteItem(i)">delete</button>
+</div>
