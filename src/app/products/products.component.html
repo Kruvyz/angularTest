@@ -1,8 +1,10 @@
-<!-- <div class="products">
-  <div class="product" *ngFor="let product of products">
+<div class="products">
+  <div class="product" *ngFor="let product of products; let i = index;">
+    <a routerLink="/products/:product.id">
     <img class="product--image" src="{{product.imageUrl}}" alt="{{product.name}}">
-    <p>{ {product.name }}</p>
+    <p>{{ product.name }}</p>
     <p>{{ product.price }} грн</p>
-    <button class="add-button" (click)="addItemInCart({{product.id}})">Add to Cart</button>
+    </a>
+    <button class="add-button" (click)="addItemInCart(i)">Add to Cart</button>
   </div>
-</div> -->
+</div>
