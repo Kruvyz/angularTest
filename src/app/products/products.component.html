@@ -1,8 +1,8 @@
-<div class="products">
+<!-- <div class="products">
   <div class="product" *ngFor="let product of products">
     <img class="product--image" src="{{product.imageUrl}}" alt="{{product.name}}">
-    <p>{{product.name}}</p>
-    <p>{{product.price}} грн</p>
-    <button class="add-button">Add to Cart</button>
+    <p>{ {product.name }}</p>
+    <p>{{ product.price }} грн</p>
+    <button class="add-button" (click)="addItemInCart({{product.id}})">Add to Cart</button>
   </div>
-</div>
+</div> -->

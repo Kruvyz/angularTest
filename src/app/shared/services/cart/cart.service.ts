@@ -8,7 +8,7 @@ export class CartService {
 
   constructor() { }
 
-  getCartItems(): Product[]{
+  getCartItems(): Product[] {
     try {
       return JSON.parse(localStorage.getItem("cart"));
     } catch(e) {
@@ -16,7 +16,20 @@ export class CartService {
     }
   }
 
-  setCart(products: Product[]): void{
+  setCart(products: Product[]): void {
     localStorage.setItem("cart", JSON.stringify(products));
   }
+
+  addItem(product: Product): void {
+    let cartList = this.getCartItems();
+    let index = cartList.findIndex(i => i.id === product.id);
+
+    if (index) {
+      cartList[index].count++;
+    } else {
+      cartList.push({ ...product, count: 1 });
+    }
+
+    this.setCart(cartList);
+  }  
 }
