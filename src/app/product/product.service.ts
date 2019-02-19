@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Product } from '../entities/product';
 import { Observable } from 'rxjs';
-import { Product } from '../../types/product';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
+export class ProductService {
 
   private productsUrl = "https://my-json-server.typicode.com/Kruvyz/angularTest/Products";
 

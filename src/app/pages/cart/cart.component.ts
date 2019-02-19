@@ -1,11 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Product } from '../shared/types/product';
-import { CartService } from '../shared/services/cart/cart.service';
-import { ApiService } from '../shared/services/api/api.service';
+import { Product } from '../../entities/product';
 import { filter, mergeMap, merge, combineAll, toArray } from 'rxjs/operators';
+import { CartService } from 'src/app/core/cart.service';
+import { ProductService } from 'src/app/product/product.service';
 
 @Component({
-  selector: 'app-cart',
+  selector: 'pages-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
 })
@@ -14,7 +14,7 @@ export class CartComponent implements OnInit {
   public cartProducts: Product[];
   public cartList;
 
-  constructor(private cartService: CartService, private apiService: ApiService) { }
+  constructor(private cartService: CartService, private productService: ProductService) { }
 
   ngOnInit() {
     this.getCart();
@@ -27,7 +27,7 @@ export class CartComponent implements OnInit {
   getCart() {
     this.cartList = this.cartService.getCartItems();
 
-    this.apiService.getProducts()
+    this.productService.getProducts()
       .pipe(
         mergeMap(prod => prod),
         filter(prod => this.cartList.find(i => i.id === prod.id)),

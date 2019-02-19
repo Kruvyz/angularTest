@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../shared/types/product';
-import { ApiService } from '../shared/services/api/api.service';
-import { CartService } from '../shared/services/cart/cart.service';
+import { Product } from 'src/app/entities/product';
+import { ProductService } from '../product.service';
+import { CartService } from 'src/app/core/cart.service';
 
 @Component({
   selector: 'app-products',
@@ -12,14 +12,14 @@ export class ProductsComponent implements OnInit {
 
   public products: Product[];
 
-  constructor(private apiService: ApiService, private cartService: CartService) { }
+  constructor(private productService: ProductService, private cartService: CartService) { }
 
   ngOnInit() {
     this.getProducts();
   }
 
   getProducts(): void {
-    this.apiService.getProducts()
+    this.productService.getProducts()
       .subscribe(products => {
         this.products = products;
       })
@@ -28,4 +28,5 @@ export class ProductsComponent implements OnInit {
   addItemInCart(id: number): void {
     this.cartService.addItem(this.products[id]);
   }
+
 }
