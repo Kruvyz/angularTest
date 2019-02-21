@@ -36,6 +36,8 @@ export class CartComponent implements OnInit {
       );
   }
 
+  // NOT COMPLETE
+
   getCount(id: number): number {
     return this.cartList.find(i => i.id === id).count;
   }
