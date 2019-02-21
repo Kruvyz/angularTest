@@ -1,3 +1,9 @@
-<p>
-  product-detail works!
-</p>
+<div class="product">
+  <img class="product--img" src="{{ (product$ | async)?.imageUrl }}" alt="product">
+  <div class="info">
+    <h2>{{ (product$ | async)?.name }}</h2>
+    <p>{{ (product$ | async)?.description }}</p>
+    <p>Price: {{ (product$ | async)?.price }} грн</p>
+    <button class="add-button" (click)="addItemInCart(product.id)">Add to Cart</button>
+  </div>
+</div>

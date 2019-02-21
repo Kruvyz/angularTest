@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsComponent } from './products/products.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { PagesRoutingModule } from '../pages/pages-routing.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
   ],
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    PagesRoutingModule
   ],
   exports: [
     ProductsComponent, 

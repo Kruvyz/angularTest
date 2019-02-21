@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/entities/product';
 import { ProductService } from '../product.service';
 import { CartService } from 'src/app/core/cart.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-products',
@@ -10,7 +11,7 @@ import { CartService } from 'src/app/core/cart.service';
 })
 export class ProductsComponent implements OnInit {
 
-  public products: Product[];
+  public products$: Observable<Product[]>;
 
   constructor(private productService: ProductService, private cartService: CartService) { }
 
@@ -19,14 +20,11 @@ export class ProductsComponent implements OnInit {
   }
 
   getProducts(): void {
-    this.productService.getProducts()
-      .subscribe(products => {
-        this.products = products;
-      })
+    this.products$ = this.productService.getProducts()
   }
 
   addItemInCart(id: number): void {
-    this.cartService.addItem(this.products[id]);
+    this.cartService.addItem(id);
   }
 
 }

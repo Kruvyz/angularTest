@@ -20,14 +20,14 @@ export class CartService {
     localStorage.setItem("cart", JSON.stringify(products));
   }
 
-  addItem(product: Product): void {
+  addItem(id: number): void {
     let cartList = this.getCartItems();
-    let index = cartList.findIndex(i => i.id === product.id);
+    let index = cartList.findIndex(i => i.id === id);
 
     if (index >= 0) {
       cartList[index].count++;
     } else {
-      cartList.push({ id: product.id, count: 1 });
+      cartList.push({ id: id, count: 1 });
     }
 
     this.setCart(cartList);

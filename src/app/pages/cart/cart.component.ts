@@ -3,6 +3,7 @@ import { Product } from '../../entities/product';
 import { filter, mergeMap, merge, combineAll, toArray } from 'rxjs/operators';
 import { CartService } from 'src/app/core/cart.service';
 import { ProductService } from 'src/app/product/product.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'pages-cart',
@@ -11,7 +12,7 @@ import { ProductService } from 'src/app/product/product.service';
 })
 export class CartComponent implements OnInit {
 
-  public cartProducts: Product[];
+  public cartProducts$: Observable<Product[]>;
   public cartList;
 
   constructor(private cartService: CartService, private productService: ProductService) { }
@@ -27,15 +28,12 @@ export class CartComponent implements OnInit {
   getCart() {
     this.cartList = this.cartService.getCartItems();
 
-    this.productService.getProducts()
+    this.cartProducts$ = this.productService.getProducts()
       .pipe(
         mergeMap(prod => prod),
         filter(prod => this.cartList.find(i => i.id === prod.id)),
         toArray()        
-      )
-      .subscribe(products => {
-        this.cartProducts = products;
-      });
+      );
   }
 
   getCount(id: number): number {
@@ -47,16 +45,16 @@ export class CartComponent implements OnInit {
   }
 
   minusCount(id: number): void {
-    if (this.cartList.find(i => i.id === id).count <= 1) return;
+    if (this.getCount(id) <= 1) return;
     this.cartList.find(i => i.id === id).count--;
   }
 
-  deleteItem(index: number): void {
-    let itemId = this.cartProducts[index].id;
-    let itemIndex = this.cartList.findIndex(i => i.id === itemId);
+  // deleteItem(index: number): void {
+  //   let itemId = this.cartProducts[index].id;
+  //   let itemIndex = this.cartList.findIndex(i => i.id === itemId);
 
-    this.cartProducts.splice(index, 1);
-    this.cartList.splice(itemIndex, 1);
-  }
+  //   this.cartProducts.splice(index, 1);
+  //   this.cartList.splice(itemIndex, 1);
+  // }
 
 }
