@@ -5,63 +5,72 @@
 			"name": "Lenovo Ideapad 100-15",
 			"price": 8000,
 			"description": "Intel Pentium / RAM 4 ГБ / SSD 128 ГБ",
-			"imageUrl": "https://i1.rozetka.ua/goods/5750895/lenovo_ideapad_330_15igm_81d100h8ra_images_5750895976.jpg"
+			"imageUrl": "https://i1.rozetka.ua/goods/5750895/lenovo_ideapad_330_15igm_81d100h8ra_images_5750895976.jpg",
+			"featured": false	
 		},
 		{
 			"id": 2,
 			"name": "Lenovo ThinkPad E480",
 			"price": 19000,
 			"description": "Intel Core i5-8250U / RAM 4 ГБ / HDD 500 ГБ",
-			"imageUrl": "https://i2.rozetka.ua/goods/4499781/lenovo_20kn004urt_images_4499781552.jpg"
+			"imageUrl": "https://i2.rozetka.ua/goods/4499781/lenovo_20kn004urt_images_4499781552.jpg",
+			"featured": true
 		},
 		{
 			"id": 3,
 			"name": "Lenovo IdeaPad 330-15ARR",
 			"price": 21500,
 			"description": "AMD Ryzen 5 2500U / RAM 16 ГБ / SSD 256 ГБ",
-			"imageUrl": "https://i2.rozetka.ua/goods/6604661/copy_lenovo_ideapad_330_15arr_81d2009wra_5b71831977f10_images_6604661574.jpg"
+			"imageUrl": "https://i2.rozetka.ua/goods/6604661/copy_lenovo_ideapad_330_15arr_81d2009wra_5b71831977f10_images_6604661574.jpg",
+			"featured": false
 		},
 		{
 			"id": 4,
 			"name": "Lenovo Legion Y530-15ICH",
 			"price": 30000,
 			"description": " Intel Core i5-8300H / RAM 16 ГБ / SSD 256 ГБ",
-			"imageUrl": "https://i1.rozetka.ua/goods/9212741/copy_lenovo_81fv015lra_5c08ffc4363bc_images_9212741125.jpg"
+			"imageUrl": "https://i1.rozetka.ua/goods/9212741/copy_lenovo_81fv015lra_5c08ffc4363bc_images_9212741125.jpg",
+			"featured": false
 		},
 		{
 			"id": 5,
 			"name": "HP ProBook 640 G4 ",
 			"price": 29000,
 			"description": "Intel Core i5-8250U / RAM 16 ГБ / SSD 256 ГБ",
-			"imageUrl": "https://i2.rozetka.ua/goods/7849487/hp_2gl98av_v4_images_7849487196.jpg"
+			"imageUrl": "https://i2.rozetka.ua/goods/7849487/hp_2gl98av_v4_images_7849487196.jpg",
+			"featured": true
 		},
 		{
 			"id": 6,
 			"name": "HP 250 G6",
 			"price": 7800,
 			"description": "Intel Celeron N4000 / RAM 4 ГБ / SSD 128 ГБ",
-			"imageUrl": "https://i2.rozetka.ua/goods/9578762/hp_4wu91es_images_9578762235.jpg"
+			"imageUrl": "https://i2.rozetka.ua/goods/9578762/hp_4wu91es_images_9578762235.jpg",
+			"featured": false
 		},
 		{
 			"id": 7,
 			"name": "Dell Vostro 15 3568",
 			"price": 10500,
 			"description": " Intel Pentium 4415U / RAM 4 ГБ / HDD 1 ТБ",
-			"imageUrl": "https://i1.rozetka.ua/goods/10787096/copy_dell_2092wvn3568emea01_1905_ubu_08_5c5c5230b2513_images_10787096517.jpg"
+			"imageUrl": "https://i1.rozetka.ua/goods/10787096/copy_dell_2092wvn3568emea01_1905_ubu_08_5c5c5230b2513_images_10787096517.jpg",
+			"featured": true
 		},
 		{
 			"id": 8,
 			"name": "Dell Inspiron 5570",
 			"price": 28000,
 			"description": "Intel Core i7-8550U / RAM 16 ГБ / SSD 256 ГБ",
-			"imageUrl": "https://i2.rozetka.ua/goods/10805504/dell_55i716s2r5m_lps_images_10805504565.jpg"
+			"imageUrl": "https://i2.rozetka.ua/goods/10805504/dell_55i716s2r5m_lps_images_10805504565.jpg",
+			"featured": false
 		},
 		{
 			"id": 9,
 			"name": "Apple MacBook Air 13",
 			"price": 33000,
 			"description": "Intel Core i5-8210Y / RAM 8 ГБ / SSD 128 ГБ",
-			"imageUrl": "https://i2.rozetka.ua/goods/9320183/apple_mree2_images_9320183117.jpg"
+			"imageUrl": "https://i2.rozetka.ua/goods/9320183/apple_mree2_images_9320183117.jpg",
+			"featured": true
 		}
 	]
 }

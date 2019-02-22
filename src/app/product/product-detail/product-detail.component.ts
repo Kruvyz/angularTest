@@ -4,6 +4,7 @@ import { ProductService } from '../product.service';
 import { CartService } from 'src/app/core/cart.service';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { async } from 'q';
 
 @Component({
   selector: 'app-product-detail',
@@ -13,6 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductDetailComponent implements OnInit {
 
   public product$: Observable<Product>;
+  public product;
 
   constructor(
     private productService: ProductService, 

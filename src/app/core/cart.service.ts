@@ -21,13 +21,13 @@ export class CartService {
   }
 
   addItem(id: number): void {
-    let cartList = this.getCartItems();
+    let cartList = this.getCartItems() || [];
     let index = cartList.findIndex(i => i.id === id);
 
-    if (index >= 0) {
-      cartList[index].count++;
-    } else {
+    if (index <= 0) {
       cartList.push({ id: id, count: 1 });
+    } else {      
+      cartList[index].count++;
     }
 
     this.setCart(cartList);
