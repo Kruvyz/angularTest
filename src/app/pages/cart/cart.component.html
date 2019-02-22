@@ -1,6 +1,6 @@
 <h2>My cart</h2>
 
-<div class="cart-item" *ngFor="let product of cartProducts$ | async; let i = index;">
+<div class="cart-item" *ngFor="let product of cartProducts$ | async">
     <img class="cart-item--image" [src]="product.imageUrl" [alt]="product.name">
     <p>{{ product.name }}</p>
     <p>{{ product.price }} грн</p>
@@ -10,5 +10,5 @@
         <button (click)="plusCount(product.id)">+</button>
     </div>
     <p>{{ product.price * getCount(product.id) }}</p>
-    <button (click)="deleteItem(i)">delete</button>
+    <button (click)="deleteItem(product.id)">delete</button>
 </div>

@@ -51,12 +51,14 @@ export class CartComponent implements OnInit {
     this.cartList.find(i => i.id === id).count--;
   }
 
-  // deleteItem(index: number): void {
-  //   let itemId = this.cartProducts[index].id;
-  //   let itemIndex = this.cartList.findIndex(i => i.id === itemId);
+  deleteItem(id: number): void {
+    this.cartList = this.cartList.filter(i => i.id !== id);
 
-  //   this.cartProducts.splice(index, 1);
-  //   this.cartList.splice(itemIndex, 1);
-  // }
+    this.cartProducts$ = this.cartProducts$.pipe(
+      mergeMap(prod => prod),
+      filter(prod => prod.id !== id),
+      toArray()
+    );
+  }
 
 }

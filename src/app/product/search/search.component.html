@@ -1,0 +1,12 @@
+<div class="search">
+  <input #searchBox (input)="search(searchBox.value)" type="text" placeholder="Search">
+  <!-- <button>Search</button> -->
+</div>
+
+<ul class="search-result">
+  <li *ngFor="let hero of products$ | async" >
+    <a routerLink="/products/{{hero.id}}">
+      {{hero.name}}
+    </a>
+  </li>
+</ul>

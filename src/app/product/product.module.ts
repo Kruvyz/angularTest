@@ -6,13 +6,15 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { PagesRoutingModule } from '../pages/pages-routing.module';
 import { FeaturedProductsComponent } from './featured-products/featured-products.component';
 import { SalesComponent } from './sales/sales.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
     ProductsComponent, 
     ProductDetailComponent, 
     FeaturedProductsComponent, 
-    SalesComponent
+    SalesComponent, 
+    SearchComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { SalesComponent } from './sales/sales.component';
     ProductsComponent, 
     ProductDetailComponent,
     FeaturedProductsComponent,
-    SalesComponent
+    SalesComponent,
+    SearchComponent
   ]
 })
 export class ProductModule { }

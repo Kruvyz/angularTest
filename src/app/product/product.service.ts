@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product } from '../entities/product';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { filter, mergeMap, toArray } from 'rxjs/operators';
 
 @Injectable({
@@ -30,5 +30,16 @@ export class ProductService {
       filter(prod => prod.featured),
       toArray()
     )
+  }
+
+  searchHeroes(term: string): Observable<Product[]> {
+    if (!term.trim()) {
+      return of([]);
+    }
+    return this.getProducts().pipe(
+      mergeMap(prod => prod),
+      filter(prod => prod.name.toLocaleLowerCase().includes(term.toLocaleLowerCase())),
+      toArray()
+    );
   }
 }
