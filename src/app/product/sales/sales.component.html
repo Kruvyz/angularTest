@@ -1,0 +1,3 @@
+<section class="sales-conteiner">
+  <img class="sales-conteiner--image" *ngFor="let prod of sales$ | async" [src]="prod.imageUrl" [alt]="prod.name">
+</section>

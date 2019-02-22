@@ -1,0 +1,10 @@
+.sales-conteiner {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+
+  &--image {
+    width: 250px;
+    height: 200px;;
+  }
+}

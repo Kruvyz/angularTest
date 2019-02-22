@@ -1,0 +1,17 @@
+.sales {
+  margin-bottom: 40px;
+
+  &--title {
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+
+.featured {
+  margin-bottom: 40px;
+
+  &--title {
+    text-align: center;
+    text-transform: capitalize;
+  }
+}

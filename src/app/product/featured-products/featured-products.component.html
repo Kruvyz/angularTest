@@ -1,0 +1,7 @@
+<section class="featured-products">
+  <div class="featured-product" *ngFor="let product of featuredProducts$ | async">    
+    <img class="featured-product--image" [src]="product.imageUrl" [alt]="product.name">
+    <h4 class="featured-product--name" [routerLink]="['/products', product.id]">{{ product.name }}</h4>
+    <button class="add-button" (click)="addItemToCart(product.id)">Add to cart</button>
+  </div>
+</section>

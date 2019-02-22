@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product } from '../entities/product';
 import { Observable } from 'rxjs';
+import { filter, mergeMap, toArray } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -21,5 +22,13 @@ export class ProductService {
     const url = `${this.productsUrl}/${id}`;
     
     return this.http.get<Product>(url);
+  }
+
+  getFeaturedProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.productsUrl).pipe(
+      mergeMap(prod => prod),
+      filter(prod => prod.featured),
+      toArray()
+    )
   }
 }

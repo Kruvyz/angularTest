@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Product } from '../entities/product';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +23,7 @@ export class CartService {
     let cartList = this.getCartItems() || [];
     let index = cartList.findIndex(i => i.id === id);
 
-    if (index <= 0) {
+    if (index < 0) {
       cartList.push({ id: id, count: 1 });
     } else {      
       cartList[index].count++;
