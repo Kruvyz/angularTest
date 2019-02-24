@@ -9,7 +9,7 @@ import { filter, mergeMap, toArray } from 'rxjs/operators';
 })
 export class ProductService {
 
-  private productsUrl = "https://my-json-server.typicode.com/Kruvyz/angularTest/Products";
+  private productsUrl = 'https://my-json-server.typicode.com/Kruvyz/angularTest/Products';
 
   constructor(private http: HttpClient) { }
 
@@ -20,7 +20,7 @@ export class ProductService {
 
   getProductDetail(id: number): Observable<Product> {
     const url = `${this.productsUrl}/${id}`;
-    
+
     return this.http.get<Product>(url);
   }
 
@@ -29,7 +29,7 @@ export class ProductService {
       mergeMap(prod => prod),
       filter(prod => prod.featured),
       toArray()
-    )
+    );
   }
 
   searchHeroes(term: string): Observable<Product[]> {

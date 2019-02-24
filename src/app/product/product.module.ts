@@ -10,10 +10,10 @@ import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
-    ProductsComponent, 
-    ProductDetailComponent, 
-    FeaturedProductsComponent, 
-    SalesComponent, 
+    ProductsComponent,
+    ProductDetailComponent,
+    FeaturedProductsComponent,
+    SalesComponent,
     SearchComponent
   ],
   imports: [
@@ -22,7 +22,7 @@ import { SearchComponent } from './search/search.component';
     PagesRoutingModule
   ],
   exports: [
-    ProductsComponent, 
+    ProductsComponent,
     ProductDetailComponent,
     FeaturedProductsComponent,
     SalesComponent,

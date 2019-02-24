@@ -6,11 +6,11 @@ import { ProductService } from 'src/app/product/product.service';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'pages-cart',
+  selector: 'app-pages-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit, OnDestroy {
 
   public cartProducts$: Observable<Product[]>;
   public cartList;
@@ -21,7 +21,7 @@ export class CartComponent implements OnInit {
     this.getCart();
   }
 
-  ngOnDestroy() {    
+  ngOnDestroy() {
     this.cartService.setCart(this.cartList);
   }
 
@@ -32,7 +32,7 @@ export class CartComponent implements OnInit {
       .pipe(
         mergeMap(prod => prod),
         filter(prod => this.cartList.find(i => i.id === prod.id)),
-        toArray()        
+        toArray()
       );
   }
 
@@ -47,7 +47,9 @@ export class CartComponent implements OnInit {
   }
 
   minusCount(id: number): void {
-    if (this.getCount(id) <= 1) return;
+    if (this.getCount(id) <= 1) {
+      return;
+    }
     this.cartList.find(i => i.id === id).count--;
   }
 

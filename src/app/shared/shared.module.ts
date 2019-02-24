@@ -7,7 +7,7 @@ import { ProductModule } from '../product/product.module';
 
 @NgModule({
   declarations: [
-    FooterComponent, 
+    FooterComponent,
     HeaderComponent
   ],
   imports: [

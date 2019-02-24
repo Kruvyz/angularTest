@@ -12,8 +12,8 @@ import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
-    ProductsComponent, 
-    PageWraperComponent, 
+    ProductsComponent,
+    PageWraperComponent,
     ProductDetailComponent,
     HomeComponent,
     CartComponent

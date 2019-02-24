@@ -20,7 +20,7 @@ export class ProductsComponent implements OnInit {
   }
 
   getProducts(): void {
-    this.products$ = this.productService.getProducts()
+    this.products$ = this.productService.getProducts();
   }
 
   addItemInCart(id: number): void {

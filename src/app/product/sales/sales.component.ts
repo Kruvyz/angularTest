@@ -16,7 +16,7 @@ export class SalesComponent implements OnInit {
   constructor(private productService: ProductService) { }
 
   ngOnInit() {
-    this.getSales()
+    this.getSales();
   }
 
   getSales() {
@@ -24,7 +24,7 @@ export class SalesComponent implements OnInit {
       mergeMap(prod => prod),
       take(4),
       toArray()
-    )    
+    );
   }
 
 }

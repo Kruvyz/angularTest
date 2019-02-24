@@ -13,9 +13,9 @@ const routes: Routes = [
       { path: 'products', children: [
         { path: '', component: ProductsComponent },
         { path: ':id', component: ProductDetailComponent }
-      ]},      
+      ]},
   ]},
-  { path: '', redirectTo: '/home', pathMatch: 'full' }  
+  { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 
 @NgModule({

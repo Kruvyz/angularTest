@@ -17,17 +17,17 @@ export class ProductDetailComponent implements OnInit {
   public product;
 
   constructor(
-    private productService: ProductService, 
+    private productService: ProductService,
     private cartService: CartService,
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    let productId = this.route.snapshot.params.id;
+    const productId = this.route.snapshot.params.id;
 
     this.getProduct(productId);
   }
 
-  getProduct(id: number): void {    
+  getProduct(id: number): void {
     this.product$ = this.productService.getProductDetail(id);
   }
 

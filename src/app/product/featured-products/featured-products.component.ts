@@ -11,7 +11,7 @@ import { CartService } from 'src/app/core/cart.service';
 })
 export class FeaturedProductsComponent implements OnInit {
 
-  public featuredProducts$: Observable<Product[]>
+  public featuredProducts$: Observable<Product[]>;
 
   constructor(private productService: ProductService, private cartService: CartService) { }
 
