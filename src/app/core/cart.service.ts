@@ -24,7 +24,7 @@ export class CartService {
     const index = cartList.findIndex(i => i.id === id);
 
     if (index < 0) {
-      cartList.push({ id, count: 1 });
+      cartList.push({ id, count: 1 }); 
     } else {
       cartList[index].count++;
     }
