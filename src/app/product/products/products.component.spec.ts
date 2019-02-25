@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProductsComponent } from './products.component';
+import { CartService } from 'src/app/core/cart.service';
+import { ProductService } from '../product.service';
+import { ProductServiceMock, CartServiceMock } from 'src/app/entities';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ProductsComponent', () => {
   let component: ProductsComponent;
@@ -8,7 +12,12 @@ describe('ProductsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProductsComponent ]
+      declarations: [ ProductsComponent ],
+      imports: [ RouterTestingModule ],
+      providers: [
+        { provide: CartService, useClass: CartServiceMock },
+        { provide: ProductService, useClass: ProductServiceMock }
+      ]
     })
     .compileComponents();
   }));
