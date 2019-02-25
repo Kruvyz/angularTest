@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/entities/product';
 import { ProductService } from '../product.service';
-import { mergeMap, toArray, take } from 'rxjs/operators';
+import { mergeMap, toArray, take, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-sales',
@@ -21,9 +21,7 @@ export class SalesComponent implements OnInit {
 
   getSales() {
     this.sales$ = this.productService.getProducts().pipe(
-      mergeMap(prod => prod),
-      take(4),
-      toArray()
+      map(prod => prod.slice(0, 4))
     );
   }
 

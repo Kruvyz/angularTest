@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Product } from '../../entities/product';
-import { filter, mergeMap, merge, combineAll, toArray } from 'rxjs/operators';
+import { filter, mergeMap, toArray, map } from 'rxjs/operators';
 import { CartService } from 'src/app/core/cart.service';
 import { ProductService } from 'src/app/product/product.service';
 import { Observable } from 'rxjs';
@@ -30,13 +30,11 @@ export class CartComponent implements OnInit, OnDestroy {
 
     this.cartProducts$ = this.productService.getProducts()
       .pipe(
-        mergeMap(prod => prod),
-        filter(prod => this.cartList.find(i => i.id === prod.id)),
-        toArray()
+        map(products => products.filter(prod => {
+          return this.cartList.find(i => i.id === prod.id);
+        }))
       );
   }
-
-  // NOT COMPLETE
 
   getCount(id: number): number {
     return this.cartList.find(i => i.id === id).count;
@@ -57,9 +55,7 @@ export class CartComponent implements OnInit, OnDestroy {
     this.cartList = this.cartList.filter(i => i.id !== id);
 
     this.cartProducts$ = this.cartProducts$.pipe(
-      mergeMap(prod => prod),
-      filter(prod => prod.id !== id),
-      toArray()
+      map(prod => prod.filter(i => i.id !== id))
     );
   }
 

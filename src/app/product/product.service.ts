@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product } from '../entities/product';
 import { Observable, of } from 'rxjs';
-import { filter, mergeMap, toArray } from 'rxjs/operators';
+import { filter, mergeMap, toArray, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -26,9 +26,7 @@ export class ProductService {
 
   getFeaturedProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.productsUrl).pipe(
-      mergeMap(prod => prod),
-      filter(prod => prod.featured),
-      toArray()
+      map(prod => prod.filter(i => i.featured))
     );
   }
 
@@ -37,9 +35,9 @@ export class ProductService {
       return of([]);
     }
     return this.getProducts().pipe(
-      mergeMap(prod => prod),
-      filter(prod => prod.name.toLocaleLowerCase().includes(term.toLocaleLowerCase())),
-      toArray()
+      map(prod => prod.filter(i => {
+        return i.name.toLocaleLowerCase().includes(term.toLocaleLowerCase());
+      }))
     );
   }
 }
