@@ -14,14 +14,13 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  userAuth() {
-    this.authService.AuthAsUser();
-    this.router.navigate(['/home']);
+  auth(name: string) {
+    if (name === 'admin') {
+      this.authService.AuthAsAdmin();
+      this.router.navigate(['/admin']);
+    } else {
+      this.authService.AuthAsUser();
+      this.router.navigate(['/home']);
+    }
   }
-
-  adminAuth() {
-    this.authService.AuthAsAdmin();
-    this.router.navigate(['/admin']);
-  }
-
 }
