@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import { CartComponent } from './cart/cart.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', children: [
@@ -14,8 +15,8 @@ const routes: Routes = [
         { path: '', component: ProductsComponent },
         { path: ':id', component: ProductDetailComponent }
       ]},
-  ]},
-  { path: '', redirectTo: '/home', pathMatch: 'full' }
+      { path: '**', component: NotFoundComponent }
+  ]}
 ];
 
 @NgModule({

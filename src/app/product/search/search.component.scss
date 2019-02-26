@@ -1,0 +1,16 @@
+.search-result {
+  position: absolute;
+  padding: 5px;
+  list-style: none;
+  background-color: white;
+
+  li:hover {
+    background-color: lightgray;
+  }
+  li {
+    a {
+      color: black;
+      text-decoration: none;
+    }
+  }
+}

@@ -8,6 +8,7 @@ import { ProductModule } from '../product/product.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { HomeComponent } from './home/home.component';
 import { CartComponent } from './cart/cart.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { CartComponent } from './cart/cart.component';
     PageWraperComponent,
     ProductDetailComponent,
     HomeComponent,
-    CartComponent
+    CartComponent,
+    NotFoundComponent
   ],
   imports: [
     CommonModule,

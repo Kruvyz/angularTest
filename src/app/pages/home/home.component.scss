@@ -1,4 +1,13 @@
+.banner {
+  background-color: aquamarine;
+  text-align: right;
+  height: 200px;
+  margin: 20px;
+  padding: 10px;
+}
+
 .sales {
+  margin: 20px;
   margin-bottom: 40px;
 
   &--title {
@@ -8,7 +17,7 @@
 }
 
 .featured {
-  margin-bottom: 40px;
+  margin: 20px;
 
   &--title {
     text-align: center;
