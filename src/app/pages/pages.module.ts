@@ -9,6 +9,8 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { HomeComponent } from './home/home.component';
 import { CartComponent } from './cart/cart.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AdminComponent } from './admin/admin.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
     ProductDetailComponent,
     HomeComponent,
     CartComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AdminComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
