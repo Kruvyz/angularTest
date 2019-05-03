@@ -13,7 +13,6 @@ const routes: Routes = [
   { path: '', children: [
       { path: 'home', component: HomeComponent },
       { path: 'cart', component: CartComponent },
-      { path: 'cart', component: CartComponent },
       { path: 'products', children: [
         { path: '', component: ProductsComponent },
         { path: ':id', component: ProductDetailComponent }
