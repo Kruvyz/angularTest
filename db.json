@@ -2,6 +2,7 @@
 	"Products": [
 		{
 			"id": 1,
+      "name": "Lenovo Ideapad 100-15",
 			"price": 8000,
 			"description": "Intel Pentium / RAM 4 ГБ / SSD 128 ГБ",
 			"imageUrl": "https://i1.rozetka.ua/goods/5750895/lenovo_ideapad_330_15igm_81d100h8ra_images_5750895976.jpg",
