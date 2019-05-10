@@ -2,7 +2,6 @@
 	"Products": [
 		{
 			"id": 1,
-			"name": "Lenovo Ideapad 100-15",
 			"price": 8000,
 			"description": "Intel Pentium / RAM 4 ГБ / SSD 128 ГБ",
 			"imageUrl": "https://i1.rozetka.ua/goods/5750895/lenovo_ideapad_330_15igm_81d100h8ra_images_5750895976.jpg",
@@ -71,15 +70,6 @@
 			"imageUrl": "https://i2.rozetka.ua/goods/10805504/dell_55i716s2r5m_lps_images_10805504565.jpg",
 			"featured": false,
       "color": ["blue", "silver"]
-		},
-		{
-			"id": 9,
-			"name": "Apple MacBook Air 13",
-			"price": 33000,
-			"description": "Intel Core i5-8210Y / RAM 8 ГБ / SSD 128 ГБ",
-			"imageUrl": "https://i2.rozetka.ua/goods/9320183/apple_mree2_images_9320183117.jpg",
-			"featured": true,
-      "color": ["black", "silver"]
 		}
 	]
 }
